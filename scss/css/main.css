@@ -1,0 +1,439 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Roboto:wght@300;400;500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.card {
+  padding: 20px;
+  width: 100% !important;
+}
+.card .card-img {
+  text-align: center;
+}
+.card .card-img img {
+  width: 200px;
+  height: 200px;
+  transition: all 0.5s;
+}
+.card .card-img img:hover {
+  transform: scale(1.05);
+}
+.card .card-body {
+  padding: 20px 0 0 0;
+  position: relative;
+}
+.card .card-body .card-title {
+  color: #c2964d;
+  font-weight: 700;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: space-between;
+}
+.card .card-body .card-title .heart {
+  font-size: 18px;
+  cursor: pointer;
+}
+.card .card-body .card-title .heart.show-heart i {
+  color: red;
+}
+.card .card-body .card-title .heart i {
+  color: gray;
+}
+.card .card-body .card-price {
+  margin: 5px 0 10px;
+}
+.card .card-body .card-price span {
+  color: #3586fd;
+  font-size: 18px;
+}
+.card .card-body .card-text {
+  color: gray;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+.card .card-body .card-text.show-card {
+  max-height: 500px;
+}
+.card .card-body .card-text p {
+  margin-bottom: 5px;
+}
+.card .card-body .card-add {
+  margin-top: 10px;
+}
+.card .card-body .card-add .read-more {
+  font-size: 18px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.card .card-body .card-add .read-more:hover {
+  letter-spacing: 1px;
+  color: #c2964d;
+}
+.card .card-body .card-add a {
+  text-decoration: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+.card .card-body .card-add a span::before {
+  content: attr(data-attr);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #c2964d;
+  color: #eee;
+  padding: 5px 20px;
+  border-radius: 4px;
+  font-size: 18px;
+  transform-origin: top;
+  transition: 0.5s;
+  transform: rotateX(90deg) translateY(-50%);
+}
+.card .card-body .card-add a:hover span::before {
+  transform: rotateX(0deg) translateY(0%);
+}
+.card .card-body .card-add a span::after {
+  content: attr(data-attr);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #444;
+  color: #eee;
+  padding: 5px 20px;
+  border-radius: 4px;
+  font-size: 18px;
+  transform-origin: bottom;
+  transition: 0.5s;
+  transform: rotateX(0deg) translateY(0%);
+}
+.card .card-body .card-add a:hover span::after {
+  transform: rotateX(90deg) translateY(50%);
+}
+
+.cart-list {
+  width: 60% !important;
+  padding: 0 50px;
+}
+.cart-list .cart-header {
+  position: relative;
+}
+.cart-list .cart-header .cart-title {
+  width: 100%;
+  text-align: center;
+  font-size: 35px;
+  color: #c2964d;
+}
+.cart-list .cart-header .cart-close {
+  position: absolute;
+  top: 25px;
+  right: 0;
+  font-size: 30px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.cart-list .cart-header .cart-close:hover {
+  color: #c2964d;
+}
+.cart-list .cart-body .list {
+  margin: 10px 0;
+}
+.cart-list .cart-body .list .list-item {
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+.cart-list .cart-body .list .list-item .thead {
+  width: 100%;
+  background: #444;
+  color: #c2964d;
+}
+.cart-list .cart-body .list .list-item .thead th {
+  padding: 10px 0;
+}
+.cart-list .cart-body .list .list-item td {
+  padding: 20px 0;
+}
+.cart-list .cart-body .list .list-item .cart-item {
+  color: #eee;
+  border-bottom: 2px solid #000;
+}
+.cart-list .cart-body .list .list-item .cart-item .cart-img img {
+  width: 60px;
+}
+.cart-list .cart-body .list .list-item .cart-item .cart-name .name {
+  font-weight: 500;
+  color: #000;
+}
+.cart-list .cart-body .list .list-item .cart-item .cart-quanlity button {
+  border-radius: 90%;
+  border-color: gray;
+  width: 35px;
+  height: 35px;
+  transition: all 0.3s;
+}
+.cart-list .cart-body .list .list-item .cart-item .cart-quanlity button:hover {
+  background: #c2964d;
+  color: #eee;
+  border: 1px solid #c2964d;
+}
+.cart-list .cart-body .list .list-item .cart-item .cart-quanlity .quan {
+  color: #000;
+  font-weight: 500;
+  margin: 0 5px;
+}
+.cart-list .cart-body .list .list-item .cart-item .cart-price {
+  color: #000;
+  font-weight: 500;
+}
+.cart-list .cart-body .list .list-item .cart-item .cart-delete {
+  padding-right: 20px;
+}
+.cart-list .cart-body .list .list-item .cart-item .cart-delete a {
+  text-decoration: none;
+  color: #c2964d;
+  font-size: 20px;
+  cursor: pointer;
+}
+.cart-list .cart-body .cart-empty {
+  text-align: center;
+  font-size: 30px;
+  color: gray;
+  margin-top: 100px;
+}
+.cart-list .cart-footer {
+  position: relative;
+  background: #fff;
+  width: 100%;
+  height: 150px;
+}
+.cart-list .cart-footer .total {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+.cart-list .cart-footer .handle {
+  position: absolute;
+  bottom: 20px;
+  right: 0;
+}
+.cart-list .cart-footer .handle .buy {
+  background: #c2964d;
+  color: #eee;
+  padding: 10px 30px;
+  border: transparent;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+.cart-list .cart-footer .handle .buy:hover {
+  opacity: 0.8;
+}
+.cart-list .cart-footer .handle .clear {
+  background: gray;
+  color: #eee;
+  padding: 10px 30px;
+  border: transparent;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+.cart-list .cart-footer .handle .clear:hover {
+  opacity: 0.8;
+}
+
+.order {
+  background: #c2964d;
+  border: 1px solid #c2964d;
+}
+.order:hover {
+  background: #000;
+}
+
+.banner {
+  background: url("/img/home-consulting-parallax-bg.jpg") center/cover no-repeat;
+  width: 100%;
+  height: 100%;
+  filter: brightness(50%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+header {
+  padding: 15px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: all 0.5s;
+}
+header.sticky {
+  background: gray;
+  z-index: 2;
+}
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header nav .nav-logo .logo {
+  font-size: 50px;
+  color: #c2964d;
+}
+header nav .nav-logo .title-header {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+header nav .nav-menu .active {
+  color: #c2964d;
+  font-weight: 700;
+}
+header nav .nav-menu a {
+  text-decoration: none;
+  color: #eee;
+  font-weight: 500;
+  margin-left: 50px;
+  transition: all 0.5s;
+}
+header nav .nav-menu a:hover {
+  color: #c2964d;
+}
+header nav .nav-menu .cart {
+  position: relative;
+}
+header nav .nav-menu .cart i {
+  color: #fff;
+  font-size: 25px;
+  margin-left: 50px;
+  cursor: pointer;
+}
+header nav .nav-menu .cart .quantity {
+  position: absolute;
+  top: -20px;
+  right: -15px;
+  background: red;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 90px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 15px;
+  font-weight: 500;
+  display: none;
+}
+header nav .nav-menu .cart .quantity.show-quantity {
+  display: block;
+}
+
+.products {
+  margin-top: 170px;
+}
+.products .select {
+  width: 20%;
+  margin-bottom: 80px;
+  cursor: pointer;
+}
+.products .row {
+  margin: 0 -20px;
+}
+.products .row .col-md-3 {
+  padding: 0 20px;
+  margin-bottom: 60px;
+}
+
+.admin {
+  margin-top: 200px;
+}
+.admin .container {
+  position: relative;
+}
+.admin .container .add {
+  text-decoration: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+.admin .container .add span::before {
+  content: attr(data-attr);
+  position: absolute;
+  bottom: 0;
+  left: 12px;
+  background: #c2964d;
+  color: #eee;
+  padding: 5px 20px;
+  border-radius: 4px;
+  font-size: 18px;
+  transform-origin: top;
+  transition: 0.5s;
+  transform: rotateX(90deg) translateY(-50%);
+}
+.admin .container .add:hover span::before {
+  transform: rotateX(0deg) translateY(0%);
+}
+.admin .container .add span::after {
+  content: attr(data-attr);
+  position: absolute;
+  bottom: 0;
+  left: 12px;
+  background: #444;
+  color: #eee;
+  padding: 5px 20px;
+  border-radius: 4px;
+  font-size: 18px;
+  transform-origin: bottom;
+  transition: 0.5s;
+  transform: rotateX(0deg) translateY(0%);
+}
+.admin .container .add:hover span::after {
+  transform: rotateX(90deg) translateY(50%);
+}
+.admin .container .search:focus {
+  box-shadow: none;
+  border-color: #eee;
+}
+.admin .container .icon-search {
+  background: gray;
+  border-color: gray;
+  cursor: pointer;
+}
+.admin .container .icon-search i {
+  color: #eee;
+  transition: all 0.5s;
+}
+.admin .container .icon-search i:hover {
+  transform: scale(1.2);
+}
+
+.table {
+  margin-top: 50px;
+}
+.table thead th {
+  background: #c2964d;
+  border: 1px solid #c2964d;
+  padding: 15px 0;
+}
+.table tbody td {
+  border: 1px solid #eee;
+  height: 100px;
+}
+
+.btn-gold {
+  background: #c2964d;
+  color: #eee;
+  border: 1px solid #c2964d;
+  padding: 6px 20px;
+}
+.btn-gold:hover {
+  background: #dfb46d;
+  color: #eee;
+  border: 1px solid #dfb46d;
+}/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Phone</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" href="./img/icon.webp">
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <!-- Animate -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <!-- Banner -->
+    <div class="banner"></div>
+
+    <!-- Cart -->
+    <div class="offcanvas offcanvas-end cart-list" tabindex="-1" id="offcanvasRight"
+        aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header cart-header">
+            <h5 class="offcanvas-title cart-title" id="offcanvasRightLabel">Cart</h5>
+            <span>
+                <i class="fa-solid fa-xmark cart-close" data-bs-dismiss="offcanvas" aria-label="Close"></i>
+            </span>
+        </div>
+        <div class="offcanvas-body cart-body">
+            <div class="list">
+                <table class="list-item">
+                    <thead class="thead">
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Remove</th>
+                    </thead>
+                    <tbody id="tbodyCartList"></tbody>
+                </table>
+            </div>
+            <p id="empty" class="cart-empty">No products in the cart</p>
+        </div>
+        <div class="cart-footer">
+            <span id="cartTotal" class="total"></span>
+            <div class="handle">
+                <button type="button" class="buy" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                    onclick="buy()">Buy</button>
+                <button class="clear" onclick="clearCart()">Clear</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal order -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Payment order</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <span id="spanGiaTien"></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success order" data-bs-toggle="modal"
+                        data-bs-target="#showTotal" onclick="order()">Order Now</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal final -->
+    <div class="modal fade" id="showTotal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <span id="spanGiaTien">Thank You!!!</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="nav-logo">
+                    <div>
+                        <i class="fa-solid fa-mobile-screen-button logo"></i>
+                        <span class="title-header">PHONE</span>
+                    </div>
+                </div>
+                <div class="nav-menu">
+                    <a href="./index.html" class="active">Products</a>
+                    <a href="./admin.html">Admin</a>
+                    <label for="check-cart" class="cart" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                        aria-controls="offcanvasRight" onclick="toggle()">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="quantity"></span>
+                    </label>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Products -->
+    <section class="products">
+        <div class="container">
+            <select id="selectProduct" class="form-select select" onchange="changePhone()">
+                <option value="">All Phones</option>
+                <option value="Iphone">Iphone</option>
+                <option value="Samsung">Samsung</option>
+            </select>
+            <div id="phoneList" class="row"></div>
+    </section>
+
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+        crossorigin="anonymous"></script>
+
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- wowjs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+
+    <!-- scroll nav -->
+    <script type="text/javascript">
+        window.addEventListener("scroll", function () {
+            const header = document.querySelector("header");
+            header.classList.toggle("sticky", window.scrollY > 0);
+        });
+    </script>
+
+    <!-- Checked heart -->
+    <script type="text/javascript">
+        function heart(id) {
+            const heart = document.getElementById(`heart-${id}`);
+            if (heart.classList.contains("show-heart")) {
+                heart.classList.remove("show-heart");
+            } else {
+                heart.classList.add("show-heart");
+            }
+        }
+    </script>
+
+    <!-- Read more -->
+    <script type="text/javascript">
+        function readMore(id) {
+            const el = document.querySelector(`#card-${id}`);
+            const btnText = document.querySelector(`#read-more-${id}`);
+            // readMore.classList
+            if (el.classList.contains("show-card")) {
+                btnText.innerHTML = "Read more...";
+                el.classList.remove("show-card");
+            } else {
+                btnText.innerHTML = "Hide";
+                el.classList.add("show-card");
+            }
+        }
+    </script>
+
+    <script src="./js/models/Product.js"></script>
+    <script src="./js/services/productsAPI.js"></script>
+    <script src="./js/controllers/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,147 @@
+.cart-list {
+	width: 60% !important;
+	padding: 0 50px;
+	.cart-header {
+		position: relative;
+		.cart-title {
+			width: 100%;
+			text-align: center;
+			font-size: 35px;
+			color: $color-gold;
+		}
+		.cart-close {
+			position: absolute;
+			top: 25px;
+			right: 0;
+			font-size: 30px;
+			transition: all 0.3s;
+			cursor: pointer;
+			&:hover {
+				color: $color-gold;
+			}
+		}
+	}
+	.cart-body {
+		.list {
+			margin: 10px 0;
+			.list-item {
+				width: 100%;
+				text-align: center;
+				box-sizing: border-box;
+				.thead {
+					width: 100%;
+					background: $color-dark-2;
+					color: $color-gold;
+					th {
+						padding: 10px 0;
+					}
+				}
+				td {
+					padding: 20px 0;
+				}
+				.cart-item {
+					color: $color-white-e;
+					border-bottom: 2px solid $color-dark;
+					.cart-img {
+						img {
+							width: 60px;
+						}
+					}
+					.cart-name {
+						.name {
+							font-weight: $fw-5;
+							color: $color-dark;
+						}
+					}
+					.cart-quanlity {
+						button {
+							border-radius: 90%;
+							border-color: $color-gray;
+							width: 35px;
+							height: 35px;
+							transition: all 0.3s;
+							&:hover {
+								background: $color-gold;
+								color: $color-white-e;
+								border: 1px solid $color-gold;
+							}
+						}
+						.quan {
+							color: $color-dark;
+							font-weight: 500;
+							margin: 0 5px;
+						}
+					}
+					.cart-price {
+						color: $color-dark;
+						font-weight: $fw-5;
+					}
+					.cart-delete {
+						padding-right: 20px;
+						a {
+							text-decoration: none;
+							color: $color-gold;
+							font-size: 20px;
+							cursor: pointer;
+						}
+					}
+				}
+			}
+		}
+		.cart-empty {
+			text-align: center;
+			font-size: 30px;
+			color: $color-gray;
+			margin-top: 100px;
+		}
+	}
+	.cart-footer {
+		position: relative;
+		background: $color-white;
+		width: 100%;
+		height: 150px;
+		.total {
+			position: absolute;
+			bottom: 70px;
+			right: 0;
+			font-size: 18px;
+			font-weight: $fw-5;
+		}
+		.handle {
+			position: absolute;
+			bottom: 20px;
+			right: 0;
+			.buy {
+				background: $color-gold;
+				color: $color-white-e;
+				padding: 10px 30px;
+				border: transparent;
+				border-radius: 5px;
+				font-weight: $fw-5;
+				transition: all 0.3s;
+				&:hover {
+					opacity: 0.8;
+				}
+			}
+			.clear {
+				background: $color-gray;
+				color: $color-white-e;
+				padding: 10px 30px;
+				border: transparent;
+				border-radius: 5px;
+				font-weight: $fw-5;
+				transition: all 0.3s;
+				&:hover {
+					opacity: 0.8;
+				}
+			}
+		}
+	}
+}
+.order {
+	background: $color-gold;
+	border: 1px solid $color-gold;
+	&:hover {
+		background: $color-dark;
+	}
+}

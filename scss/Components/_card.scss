@@ -1,0 +1,106 @@
+.card {
+	padding: 20px;
+	width: 100% !important;
+	.card-img {
+		text-align: center;
+		img {
+			width: 200px;
+			height: 200px;
+			transition: all 0.5s;
+			&:hover {
+				transform: scale(1.05);
+			}
+		}
+	}
+	.card-body {
+		padding: 20px 0 0 0;
+		position: relative;
+		.card-title {
+			color: $color-gold;
+			font-weight: $fw-7;
+			margin-bottom: 0;
+			display: flex;
+			justify-content: space-between;
+			.heart {
+				font-size: 18px;
+				cursor: pointer;
+				&.show-heart i {
+					color: $color-red;
+					}
+				i {
+					color: $color-gray;
+				}
+			}
+		}
+		.card-price {
+			margin: 5px 0 10px;
+			span {
+				color: $color-blue;
+				font-size: 18px;
+			}
+		}
+		.card-text {
+			color: $color-gray;
+			max-height: 0;
+			overflow: hidden;
+			transition: all 0.5s;
+			&.show-card {
+				max-height: 500px;
+			}
+			p {
+				margin-bottom: 5px;
+			}
+		}
+		.card-add {
+			margin-top: 10px;
+			.read-more {
+				font-size: 18px;
+				transition: all 0.5s;
+				cursor: pointer;
+				&:hover {
+					letter-spacing: 1px;
+					color: $color-gold;
+				}
+			}
+			a {
+				text-decoration: none;
+				font-size: 30px;
+				cursor: pointer;
+			}
+			a span::before {
+				content: attr(data-attr);
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				background: $color-gold;
+				color: $color-white-e;
+				padding: 5px 20px;
+				border-radius: 4px;
+				font-size: 18px;
+				transform-origin: top;
+				transition: 0.5s;
+				transform: rotateX(90deg) translateY(-50%);
+			}
+			a:hover span::before {
+				transform: rotateX(0deg) translateY(0%);
+			}
+			a span::after {
+				content: attr(data-attr);
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				background: $color-dark-2;
+				color: $color-white-e;
+				padding: 5px 20px;
+				border-radius: 4px;
+				font-size: 18px;
+				transform-origin: bottom;
+				transition: 0.5s;
+				transform: rotateX(0deg) translateY(0%);
+			}
+			a:hover span::after {
+				transform: rotateX(90deg) translateY(50%);
+			}
+		}
+	}
+}

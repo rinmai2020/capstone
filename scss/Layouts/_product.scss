@@ -1,0 +1,15 @@
+.products {
+    margin-top: 170px;
+    .select {
+        width: 20%;
+        margin-bottom: 80px;
+        cursor: pointer;
+    }
+    .row {
+        margin: 0 -20px;
+        .col-md-3 {
+            padding: 0 20px;
+            margin-bottom: 60px;
+        }
+    }
+}
